@@ -1,0 +1,114 @@
+.dropdown {
+  position: relative;
+  width: 100%;
+
+  .inputField {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 8px;
+    align-items: center;
+    color: rgb(155, 155, 155);
+    cursor: pointer;
+
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 3px;
+    &:hover {
+      border: 1px solid rgb(134, 134, 134);
+    }
+
+    & .selectedItemsList {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 90%;
+
+      & .selectedItem {
+        background-color: rgb(146, 146, 146);
+        color: rgb(223, 223, 223);
+        padding: 2px 4px;
+        font-size: 14px;
+        margin: 2px 0;
+        margin-right: 5px;
+
+        display: flex;
+        align-items: center;
+
+        & .remove {
+          width: 14px;
+          height: 14px;
+          opacity: 0.3;
+          margin: 0 2px;
+          position: relative;
+          &:hover {
+            opacity: 1;
+          }
+          &:before,
+          &:after {
+            position: absolute;
+            left: 50%;
+            content: "";
+            height: 14px;
+            width: 2px;
+            background-color: rgb(0, 0, 0);
+          }
+          &:before {
+            transform: rotate(45deg);
+          }
+          &:after {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+
+    & .iconContainer {
+      padding: 5px 8px;
+
+      & .arrow {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        transition: 0.5s;
+        &.opened {
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  .menu {
+    border: 1px solid gray;
+    border-radius: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    opacity: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 11;
+    transition: 0.5s;
+    visibility: hidden;
+
+    &.opened {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    & .menu-element {
+      padding: 8px;
+      color: rgb(141, 141, 141);
+      cursor: pointer;
+      background-color: white;
+      &.selected {
+        background-color: rgb(235, 235, 235);
+      }
+    }
+  }
+}
